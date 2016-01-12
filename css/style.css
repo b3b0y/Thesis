@@ -1,0 +1,791 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
+
+body {
+  background: url(../images/bgnoise_lg.png); 
+  font-family: 'Roboto', sans-serif;
+  background-repeat: repeat;
+}
+
+/* Login */
+
+.login-card {
+  padding: 40px;
+  width: 274px;
+  background-color: #F7F7F7;
+  margin: 0 auto 10px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.login-card h1 {
+  font-weight: 100;
+  text-align: center;
+  font-size: 2.3em;
+}
+
+.login-card input[type=submit] {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.login-card input[type=text], input[type=password] {
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  /* border-radius: 2px; */
+  padding: 0 8px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.login-card input[type=text]:hover, input[type=password]:hover {
+  border: 1px solid #b9b9b9;
+  border-top: 1px solid #a0a0a0;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.login {
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  height: 36px;
+  padding: 0 8px;
+/* border-radius: 3px; */
+/* -webkit-user-select: none;
+  user-select: none; */
+}
+
+.login-submit {
+  /* border: 1px solid #3079ed; */
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  background-color: #4d90fe;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
+
+.login-submit:hover {
+  /* border: 1px solid #2f5bb7; */
+  border: 0px;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #357ae8;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+}
+
+.login-card a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  opacity: 0.6;
+  transition: opacity ease 0.5s;
+}
+
+.login-card a:hover {
+  opacity: 1;
+}
+
+.login-help {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+}
+
+
+
+
+/* Form */
+
+
+.form{
+	background:#f1f1f1; 
+	width:420px; 
+	margin:0 auto; 
+	padding-left:20px; 
+	padding-top:20px;
+}
+
+.form{
+  background:#f1f1f1; 
+  width:420px; 
+  margin:0 auto; 
+  padding-left:20px; 
+  padding-top:20px;
+}
+
+.form p.contact { font-size: 12px; margin:0px 0px 15px 0;line-height: 14px; font-family:Arial, Helvetica;}
+
+.form input[type="text"] 
+{ 
+  width: 400px; 
+}
+.form input[type="password"] 
+{ 
+  width: 400px; 
+  height:auto;
+}
+.form label 
+{ 
+  color: #000; 
+  font-weight:bold;
+  font-size: 12px;
+  font-family:Arial, Helvetica; 
+}
+.form input, textarea 
+{ 
+  background-color: rgba(255, 255, 255, 0.4); 
+  border: 1px solid #CBF1B4; padding: 7px; 
+  font-family: Keffeesatz, Arial; 
+  color: #4b4b4b; 
+  font-size: 14px; -webkit-border-radius: 5px;
+  margin-bottom: 15px; 
+  margin-top: -10px; 
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+ }
+.form input:focus, textarea:focus { border: 1px solid #00FFFF; background-color: #FFF); }
+.form .select-style 
+{
+  -webkit-appearance: button;
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-padding-end: 20px;
+  -webkit-padding-start: 2px;
+  -webkit-user-select: none;
+  background-image: url(../Images/select-arrow.png), 
+   -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+  background-position: center right;
+  background-repeat: no-repeat;
+  border: 0px solid #FFF;
+  color: #555;
+  font-size: inherit;
+  margin: 0;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width:190px;
+}
+.form input.buttom
+{ 
+	background: green; 
+	display: inline-block; 
+	padding: 5px 10px 6px; 
+	color: #fbf7f7; 
+	text-decoration: none; 
+	font-weight: bold; 
+	line-height: 1; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;
+	border-radius: 5px; 
+	-moz-box-shadow: 0 1px 3px #999; 
+	-webkit-box-shadow: 0 1px 3px #999; 
+	box-shadow: 0 1px 3px #999; 
+	text-shadow: 0 -1px 1px #222; 
+	border: none; 
+	position: relative; 
+	cursor: pointer; 
+	font-size: 14px; 
+	font-family:Verdana, Geneva, sans-serif;
+	width:150px;
+}
+.form input.buttom:hover	{ background-color: gray; }
+
+
+/* Form */
+
+
+.form1
+{
+  margin:0 auto; 
+  padding-left:20px; 
+  padding-top:20px;
+}
+
+.form1 p.contact 
+{ 
+  font-size: 12px; 
+  margin:0px 0px 15px 0;
+  line-height: 14px; 
+  font-family:Arial, Helvetica;
+}
+
+.form1  td 
+{
+  width: 100px;
+
+}
+
+
+.form1 #folder 
+{
+  width: 400px;
+
+}
+
+.form1 input[type="text"] 
+{ 
+  width: 300px; 
+}
+
+.form1 input[type="text"]:hover, input[type="password"]:hover
+{ 
+   border-color: #00FFFF; 
+}
+
+.form1 input[type="password"] 
+{ 
+  width: 300px; 
+  height:auto;
+}
+.form1 label 
+{ 
+  color: #000; 
+  font-weight:bold;
+  font-size: 12px;
+  font-family:Arial, Helvetica; 
+}
+
+.form1 input, textarea 
+{ 
+  background-color: rgba(255, 255, 255, 0.4); 
+  border: 1px solid #666; padding: 7px; 
+  font-family: Keffeesatz, Arial; 
+  color: #4b4b4b; 
+  font-size: 14px; -webkit-border-radius: 5px;
+  margin-bottom: 15px; 
+  margin-top: -10px; 
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+ }
+
+.form1 input:focus, textarea:focus 
+{ 
+  border: 2px solid #CBF1B4; 
+  background-color: #FFF); 
+}
+
+.form1 .select-style 
+{
+  -webkit-appearance: button;
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-padding-end: 20px;
+  -webkit-padding-start: 2px;
+  -webkit-user-select: none;
+  background-image: url(../Images/select-arrow.png), 
+   -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+  background-position: center right;
+  background-repeat: no-repeat;
+  border: 0px solid #FFF;
+  color: #555;
+  font-size: inherit;
+  margin: 0;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width:190px;
+}
+
+.form1 input.buttom
+{ 
+  background: green; 
+  display: inline-block; 
+  padding: 5px 10px 6px; 
+  color: #fbf7f7; 
+  text-decoration: none; 
+  font-weight: bold; 
+  line-height: 1; 
+  -moz-border-radius: 5px; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  -moz-box-shadow: 0 1px 3px #999; 
+  -webkit-box-shadow: 0 1px 3px #999; 
+  box-shadow: 0 1px 3px #999; 
+  text-shadow: 0 -1px 1px #222; 
+  border: none; 
+  position: relative; 
+  cursor: pointer; 
+  font-size: 14px; 
+  font-family:Verdana, Geneva, sans-serif;
+  width:150px;
+}
+
+.form1 input.buttom:hover  
+{ 
+  background-color: gray; 
+}
+
+.form1 fieldset
+{
+  margin-bottom:10px;
+  box-shadow:0 0 10px #999;
+  border-radius:5px;
+  border:2px solid #666;
+  padding:15px;
+}
+
+.form1 legend
+{
+  padding:4px;font-size:20px;background:#fff;
+}
+
+
+/* form_2 */
+
+
+.form_2{
+  background:#ffffff; 
+  width:945px; 
+  height: 100%;
+  margin:0 auto; 
+  padding-left:20px; 
+  padding-top:20px;
+}
+
+.form_2 p.contact { font-size: 12px; margin:0px 0px 15px 0;line-height: 14px; font-family:Arial, Helvetica;}
+
+.form_2 input[type="text"] 
+{ 
+  width: 200px; 
+}
+
+
+.form_2  input[type="text"].desc
+{ 
+  width: 400px; 
+}
+
+.form_2 input[type="text"].units
+{ 
+  width: 100px; 
+}
+
+.form_2 input[type="password"] 
+{ 
+  width: 400px; 
+  height:auto;
+}
+.form_2 label 
+{ 
+  color: #000; 
+  font-weight:bold;
+  font-size: 12px;
+  font-family:Arial, Helvetica; 
+}
+
+.form_2 table
+{
+  width: 900px;
+}
+
+.form_2 td
+{
+  padding-left: 20px;
+}
+
+.form_2 input, textarea 
+{ 
+  background-color: rgba(255, 255, 255, 0.4); 
+  border: 1px solid #CBF1B4; padding: 7px; 
+  font-family: Keffeesatz, Arial; 
+  color: #4b4b4b; 
+  font-size: 14px; -webkit-border-radius: 5px;
+  margin-bottom: 15px; 
+  margin-top: -10px; 
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+ }
+.form_2 input:focus, textarea:focus { border: 1px solid #00FFFF; background-color: #FFF); }
+.form_2 .select-style 
+{
+  -webkit-appearance: button;
+  -webkit-border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-padding-end: 20px;
+  -webkit-padding-start: 2px;
+  -webkit-user-select: none;
+  background-image: url(../Images/select-arrow.png), 
+   -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+  background-position: center right;
+  background-repeat: no-repeat;
+  border: 0px solid #FFF;
+  color: #555;
+  font-size: inherit;
+  margin: 0;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width:190px;
+}
+.form_2 input.buttom
+{ 
+  background: green; 
+  display: inline-block; 
+  padding: 5px 10px 6px; 
+  color: #fbf7f7; 
+  text-decoration: none; 
+  font-weight: bold; 
+  line-height: 1; 
+  -moz-border-radius: 5px; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  -moz-box-shadow: 0 1px 3px #999; 
+  -webkit-box-shadow: 0 1px 3px #999; 
+  box-shadow: 0 1px 3px #999; 
+  text-shadow: 0 -1px 1px #222; 
+  border: none; 
+  position: relative; 
+  cursor: pointer; 
+  font-size: 14px; 
+  font-family:Verdana, Geneva, sans-serif;
+  width:160px;
+}
+.form_2 input.buttom:hover  { background-color: gray; }
+
+
+
+.object_ok
+{
+border: 1px solid green; 
+color: #333333; 
+}
+
+.object_error
+{
+border: 1px solid #AC3962; 
+color: #333333; 
+}
+
+
+
+/* menu */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a,
+#cssmenu #menu-button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu #menu-button {
+  display: none;
+}
+#cssmenu {
+  width: auto;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1;
+  background: #ffffff;
+  background: #a7bc7a url(../images/pattern.png) top left repeat;
+}
+#menu-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #000000;
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  -ms-transition: all 0.25s ease-out;
+  -o-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+#cssmenu > ul > li {
+  float: left;
+}
+#cssmenu.align-center > ul {
+  font-size: 0;
+  text-align: center;
+}
+#cssmenu.align-center > ul > li {
+  display: inline-block;
+  float: none;
+}
+#cssmenu.align-center ul ul {
+  text-align: left;
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+}
+#cssmenu.align-right ul ul {
+  text-align: right;
+}
+#cssmenu > ul > li > a {
+  padding: 20px;
+  font-size: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000000;
+  -webkit-transition: color .2s ease;
+  -moz-transition: color .2s ease;
+  -ms-transition: color .2s ease;
+  -o-transition: color .2s ease;
+  transition: color .2s ease;
+}
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li.active > a {
+  color: #ffffff;
+}
+#cssmenu > ul > li.has-sub > a {
+  padding-right: 25px;
+
+}
+#cssmenu > ul > li.has-sub > a::after {
+  position: absolute;
+  top: 21px;
+  right: 10px;
+  width: 4px;
+  height: 4px;
+  border-bottom: 1px solid #000000;
+  border-right: 1px solid #000000;
+  content: "";
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: border-color 0.2s ease;
+  -moz-transition: border-color 0.2s ease;
+  -ms-transition: border-color 0.2s ease;
+  -o-transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease;
+}
+#cssmenu > ul > li.has-sub:hover > a::after {
+  border-color: #a9ff00;
+}
+#cssmenu ul ul {
+  position: absolute;
+  left: -9999px;
+ 
+}
+#cssmenu li:hover > ul {
+  left: auto;
+}
+#cssmenu.align-right li:hover > ul {
+  right: 0;
+}
+#cssmenu ul ul ul {
+  margin-left: 100%;
+  top: 0;
+}
+#cssmenu.align-right ul ul ul {
+  margin-left: 0;
+  margin-right: 100%;
+}
+#cssmenu ul ul li {
+  height: 0;
+  -webkit-transition: height .2s ease;
+  -moz-transition: height .2s ease;
+  -ms-transition: height .2s ease;
+  -o-transition: height .2s ease;
+  transition: height .2s ease;
+  z-index: 9999;
+}
+#cssmenu ul li:hover > ul > li {
+  height: 32px;
+}
+#cssmenu ul ul li a {
+  padding: 10px 20px;
+  width: 160px;
+  font-size: 12px;
+  background: #a7bc7a url(../images/pattern.png) top left repeat;
+  text-decoration: none;
+  color: #000000;
+  -webkit-transition: color .2s ease;
+  -moz-transition: color .2s ease;
+  -ms-transition: color .2s ease;
+  -o-transition: color .2s ease;
+  transition: color .2s ease;
+}
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li a:hover {
+  color: #ffffff;
+}
+#cssmenu ul ul li.has-sub > a::after {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  width: 4px;
+  height: 4px;
+  border-bottom: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  content: "";
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transition: border-color 0.2s ease;
+  -moz-transition: border-color 0.2s ease;
+  -ms-transition: border-color 0.2s ease;
+  -o-transition: border-color 0.2s ease;
+  transition: border-color 0.2s ease;
+}
+#cssmenu.align-right ul ul li.has-sub > a::after {
+  right: auto;
+  left: 10px;
+  border-bottom: 0;
+  border-right: 0;
+  border-top: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+}
+#cssmenu ul ul li.has-sub:hover > a::after {
+  border-color: #ffffff;
+}
+@media all and (max-width: 768px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+  #cssmenu {
+    width: 100%;
+  }
+  #cssmenu ul {
+    width: 100%;
+    display: none;
+  }
+  #cssmenu.align-center > ul,
+  #cssmenu.align-right ul ul {
+    text-align: left;
+  }
+  #cssmenu ul li,
+  #cssmenu ul ul li,
+  #cssmenu ul li:hover > ul > li {
+    width: 100%;
+    height: auto;
+    border-top: 1px solid rgba(120, 120, 120, 0.15);
+  }
+  #cssmenu ul li a,
+  #cssmenu ul ul li a {
+    width: 100%;
+  }
+  #cssmenu > ul > li,
+  #cssmenu.align-center > ul > li,
+  #cssmenu.align-right > ul > li {
+    float: none;
+    display: block;
+  }
+  #cssmenu ul ul li a {
+    padding: 20px 20px 20px 30px;
+    font-size: 12px;
+    color: #000000;
+    background: none;
+  }
+  #cssmenu ul ul li:hover > a,
+  #cssmenu ul ul li a:hover {
+    color: #000000;
+  }
+  #cssmenu ul ul ul li a {
+    padding-left: 40px;
+  }
+  #cssmenu ul ul,
+  #cssmenu ul ul ul {
+    position: relative;
+    left: 0;
+    right: auto;
+    width: 100%;
+    margin: 0;
+  }
+  #cssmenu > ul > li.has-sub > a::after,
+  #cssmenu ul ul li.has-sub > a::after {
+    display: none;
+  }
+  #menu-line {
+    display: none;
+  }
+  #cssmenu #menu-button {
+    display: block;
+    padding: 20px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  #cssmenu #menu-button::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: block;
+    width: 15px;
+    height: 2px;
+    background: #000000;
+  }
+  #cssmenu #menu-button::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    display: block;
+    width: 15px;
+    height: 3px;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+  }
+  #cssmenu .submenu-button {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    top: 0;
+    display: block;
+    border-left: 1px solid rgba(120, 120, 120, 0.15);
+    height: 52px;
+    width: 52px;
+    cursor: pointer;
+  }
+  #cssmenu .submenu-button::after {
+    content: '';
+    position: absolute;
+    top: 21px;
+    left: 26px;
+    display: block;
+    width: 1px;
+    height: 11px;
+    background: #000000;
+    z-index: 99;
+  }
+  #cssmenu .submenu-button::before {
+    content: '';
+    position: absolute;
+    left: 21px;
+    top: 26px;
+    display: block;
+    width: 11px;
+    height: 1px;
+    background: #000000;
+    z-index: 99;
+  }
+  #cssmenu .submenu-button.submenu-opened:after {
+    display: none;
+  }
+}
+
