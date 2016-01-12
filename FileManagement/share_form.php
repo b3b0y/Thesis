@@ -31,7 +31,7 @@ if($_POST['Submit'] == 'Submit')
         {
             while ($row3 = mysql_fetch_array($result)) 
             {
-                mysql_query("INSERT INTO fr_share_folder(studID,Sub_Name,Folder_Name,subID,Folder_Owner,Date_Created,Time_Created,upload,download) VALUES('".$row3['studID']."','".$row2['Subject']."-".$folder."','".$folder."','".$row['ID']."','".$_SESSION['uid']."','".$date."','".$time."','".$_POST['upload']."','".$_POST['download']."') ON DUPLICATE KEY UPDATE studID = '".$row3['studID']."',Sub_Name = '".$row2['Subject']."-".$folder."',Folder_Name = '".$folder."',subID = '".$row['ID']."',Folder_Owner = '".$_SESSION['uid']."',upload = '".$_POST['upload']."', download='".$_POST['download']."'") or die ("wew". mysql_error());
+                mysql_query("INSERT INTO fr_share_folder(studID,Sub_Name,Folder_Name,subID,Folder_Owner,Date_Created,Time_Created,upload,download) VALUES('".$row3['studID']."','".$row2['Subject']."_".$folder."','".$folder."','".$row['ID']."','".$_SESSION['uid']."','".$date."','".$time."','".$_POST['upload']."','".$_POST['download']."') ON DUPLICATE KEY UPDATE studID = '".$row3['studID']."',Sub_Name = '".$row2['Subject']."-".$folder."',Folder_Name = '".$folder."',subID = '".$row['ID']."',Folder_Owner = '".$_SESSION['uid']."',upload = '".$_POST['upload']."', download='".$_POST['download']."'") or die ("wew". mysql_error());
             }
              $rename_action = TRUE;
         }

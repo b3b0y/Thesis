@@ -211,12 +211,12 @@
 				if(in_array(strtolower(strrchr($files['name'][$key], '.')), $thumb_types) && $display_image_thumbs == 1)
 				{	
 					//signifies it's an image and a thumbnail is to be displayed
-					$cells_thumbs[] = '<div class="variant-wraper '.$file_class.'"> <div class="variant-image"> <a id="clickf'.$files_counter.'"  target="_blank" ><img style="cursor:pointer"  onclick="show_div(1, \''.$files_counter.'\');" id="img_thumb_'.$img_thumbs_counter.'" link_att="'.rawurlencode($files['link'][$key]).'" src="dirLIST_files/icons_large/loading'.$color_scheme_code.'.gif" border="0" /></a></div>'."\n";
+					$cells_thumbs[] = '<div class="variant-wraper '.$file_class.'"> <div class="variant-image"> <a id="clickf'.$files_counter.'"  target="_blank" ><img style="cursor:pointer"   src="dirLIST_files/icons_large/loading'.$color_scheme_code.'.gif" border="0" /></a></div>'."\n";
 					$img_thumbs_counter++;
 				}
 				else
 				{
-					$cells_thumbs[] = '<div class="variant-wraper '.$file_class.'"> <div class="variant-image"> <a id="clickf'.$files_counter.'" target="_blank"><img style="cursor:pointer"  onclick="show_div(1, \''.$files_counter.'\');" border="0" src="dirLIST_files/icons_large/'.$files_icons_array[$key].'" /></a></div>'."\n";
+					$cells_thumbs[] = '<div class="variant-wraper '.$file_class.'"> <div class="variant-image"> <a id="clickf'.$files_counter.'" target="_blank"><img style="cursor:pointer"  src="dirLIST_files/icons_large/'.$files_icons_array[$key].'" /></a></div>'."\n";
 				}
 				
 				$cell_name = '';
@@ -249,6 +249,7 @@
 			echo '</ul>';
 
 		}
+		/*
 		else //list mode
 		{
 		?>
@@ -314,6 +315,7 @@
 			}
 			echo '</table>';
 			}
+			*/
 		//Palce the content into a table -done
 	}
 

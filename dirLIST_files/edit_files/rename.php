@@ -27,20 +27,106 @@ if($_POST['Submit'] == 'Rename')
 			{
 				if(!empty($_GET['folder']))
 				{
-					$result = mysql_query("SELECT * FROM fr_path  WHERE Folder_Name = '".base64_decode($_GET['item_name'])."'");
-					$row = mysql_fetch_array($result);
 
-					$result2 = mysql_query("SELECT * FROM fr_path  WHERE pathID = '".$row['Parent_F']."'");
-					$row2 = mysql_fetch_array($result2);
-					
-					$dir_to_browse2 = $row2['pathName']."/";
+					$file_name = basename(base64_decode($_GET['item_name']));
+					$folder = basename($_GET['folder']);
 
-					$old_name = $dir_to_browse2.base64_decode($_GET['item_name']);
-					$new_name = $dir_to_browse2.$_POST['new_name'];
+					$result = mysql_query("SELECT * FROM fr_path  WHERE Folder_Name = '".$file_name."'");
+					if(mysql_num_rows($result) > 0)
+					{
+						$row = mysql_fetch_array($result);
+
+						$result2 = mysql_query("SELECT * FROM fr_path  WHERE pathID = '".$row['Parent_F']."'");
+						$row2 = mysql_fetch_array($result2);
+						
+						$dir_to_browse2 = $row2['pathName']."/";
+
+						$old_name = $dir_to_browse2.$file_name;
+
+						$new_name = $dir_to_browse2.$_POST['new_name'];
+
+						if(rename($old_name, $new_name))
+						{
+							$rename_action = TRUE;
+
+							mysql_query("UPDATE fr_path SET pathName = '".$new_name."' , Folder_Name = '".$_POST['new_name']."' WHERE Folder_Name = '".$file_name."'");
+						}
+						else
+							die('Could not rename file/folder c. Permission denied');
+					}
+					else
+					{
+						$result1 = mysql_query("SELECT * FROM fr_ins_subject  WHERE Subject = '".$file_name."'");
+						if(mysql_num_rows($result1) > 0)
+						{
+							$row1 = mysql_fetch_array($result1);
+							
+							$result2 = mysql_query("SELECT * FROM fr_ins_subject  WHERE ID = '".$row1['Parent_F']."'");
+							$row2 = mysql_fetch_array($result2);
+							
+							$dir_to_browse2 = $row2['SubPath']."/";
+
+							echo $old_name = $dir_to_browse2.$file_name;
+
+							$new_name = $dir_to_browse2.$_POST['new_name'];
+
+							if(rename($old_name, $new_name))
+							{
+								$rename_action = TRUE;
+
+								mysql_query("UPDATE fr_ins_subject SET SubPath = '".$new_name."' , Subject = '".$_POST['new_name']."' WHERE Subject = '".$file_name."'");
+
+								$Sub_Name = $_POST['new_name'].'_'.basename($row2['SubPath']);
+
+								$result3= mysql_query("SELECT * FROM fr_ins_subject  WHERE Parent_F = '".$row1['Parent_F']."'");
+								$row3 = mysql_fetch_array($result3);
+
+								mysql_query("UPDATE fr_share_folder SET Sub_Name = '".$Sub_Name."' , Folder_Name = '".$_POST['new_name']."' WHERE subID = '".$row3['ID']."'");
+							}
+							else
+								die('Could not rename file/folder c. Permission denied');
+
+						}
+						else
+						{
+							$result1 = mysql_query("SELECT * FROM fr_stud_subject  WHERE Folder_Name = '".$file_name."'");
+							if(mysql_num_rows($result1) > 0)
+							{
+								$row1 = mysql_fetch_array($result1);
+								
+								$result2 = mysql_query("SELECT * FROM fr_stud_subject  WHERE ID = '".$row1['subID']."'");
+								$row2 = mysql_fetch_array($result2);
+								
+								$dir_to_browse2 = $row2['SubPath']."/";
+
+								echo $old_name = $dir_to_browse2.$file_name;
+
+								$new_name = $dir_to_browse2.$_POST['new_name'];
+
+								if(rename($old_name, $new_name))
+								{
+									$rename_action = TRUE;
+
+									mysql_query("UPDATE fr_stud_subject SET SubPath = '".$new_name."' , Folder_Name = '".$_POST['new_name']."' WHERE Folder_Name = '".$file_name."'");
+
+									$Sub_Name = $_POST['new_name'].'_'.basename($row2['SubPath']);
+
+									$result3= mysql_query("SELECT * FROM fr_ins_subject  WHERE Parent_F = '".$row1['subID']."'");
+									$row3 = mysql_fetch_array($result3);
+
+									mysql_query("UPDATE fr_share_folder SET Sub_Name = '".$Sub_Name."' , Folder_Name = '".$_POST['new_name']."' WHERE subID = '".$row3['ID']."'");
+								}
+								else
+									die('Could not rename file/folder c. Permission denied');
+
+							}
+
+						}
+					}
 				}
 				else
 				{
-					$result1 = mysql_query("SELECT * FROM fr_path  WHERE Folder_Name = '".base64_decode($_GET['item_name'])."'");
+					$result1 = mysql_query("SELECT * FROM fr_path  WHERE Folder_Name = '".$file_name."'");
 					$row1 = mysql_fetch_array($result1);
 
 					echo $row1['Parent_F'];
@@ -48,26 +134,17 @@ if($_POST['Submit'] == 'Rename')
 					$result = mysql_query("SELECT * FROM fr_path  WHERE pathID = '".$row1['Parent_F']."'");
 					$row = mysql_fetch_array($result);
 					
-					echo $old_name = $row['pathName']."/".base64_decode($_GET['item_name']);
+					echo $old_name = $row['pathName']."/".$file_name;
 					  $new_name = $row['pathName']."/".$_POST['new_name'];
 				}
-				
-				if(rename($old_name, $new_name))
-				{
-					$rename_action = TRUE;
-
-					mysql_query("UPDATE fr_path SET pathName = '".$new_name."' , Folder_Name = '".$_POST['new_name']."' WHERE Folder_Name = '".base64_decode($_GET['item_name'])."'");
-				}
-				else
-					die('Could not rename file/folder c. Permission denied');
 			}
 			elseif($listing_mode == 1) //ftp rename
 			{
 				$ftp_stream = ftp_connect($ftp_host) or die(display_error_message("<b>Could not connect to FTP host</b>"));
 				ftp_login($ftp_stream, $ftp_username, $ftp_password) or die(display_error_message("<b>Could not login to FTP host</b>"));
 
-				$old_name = $dir_to_browse.base64_decode($_GET['folder']).'/'.base64_decode($_GET['item_name']);
-				$new_name = $dir_to_browse.base64_decode($_GET['folder']).'/'.$_POST['new_name'];
+				$old_name = $dir_to_browse.$folder.'/'.$file_name;
+				$new_name = $dir_to_browse.$folder.'/'.$_POST['new_name'];
 				
 				if(@ftp_rename($ftp_stream, $old_name, $new_name))
 					$rename_action = TRUE;
@@ -166,7 +243,7 @@ function onload_events()
   <table width="450" border="0" align="center" cellpadding="5" cellspacing="0" id="main_table">
     <tr>
       <td width="108" align="right" class="lables"><?PHP echo $local_text['current_name']; ?></td>
-      <td width="334" class="current_name"><?PHP echo base64_decode($_GET['item_name']); ?></td>
+      <td width="334" class="current_name"><?PHP echo basename(base64_decode($_GET['item_name'])); ?></td>
     </tr>
     <tr>
       <td align="right" class="lables"><?PHP echo $local_text['new_name']; ?></td>

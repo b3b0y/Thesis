@@ -111,9 +111,7 @@ if(mysql_num_rows($result) > 0)
 			{
 				if(isset($_POST['folder']) && $_POST['folder'] != "")
 				{
-					
 					$folder = basename(base64_decode(trim($_POST['folder'])));
-
 				}
 				else
 				{
@@ -154,6 +152,22 @@ if(mysql_num_rows($result) > 0)
 
 							mysql_query("INSERT INTO fr_folder_owner(Fid,uid) VALUES('".$row2['ID']."','".$_SESSION['uid']."')");
 						}
+						else
+						{
+							$result = mysql_query("SELECT * FROM  fr_stud_subject   WHERE Folder_Name = '".$folder."'");
+							if(mysql_num_rows($result) > 0 )
+							{
+								$row = mysql_fetch_array($result);
+								
+								mysql_query("INSERT INTO fr_stud_subject(studID,Folder_Name,SubPath,subID,Date_Created,Time_Created) VALUES('".$_SESSION['uid']."','".$new_path."','".$file_name."','".$row['ID']."','".$date ."','".$time."')");
+
+								$result2 = mysql_query("SELECT * FROM fr_stud_subject  WHERE Folder_Name = '".$file_name."'");
+								$row2 = mysql_fetch_array($result2);
+
+								mysql_query("INSERT INTO fr_folder_owner(Fid,uid) VALUES('".$row2['ID']."','".$_SESSION['uid']."')");
+							}
+
+						}
 					}
 
 					mysql_query("INSERT INTO fr_rep(uid,Description,DateMod) VALUES('".$_SESSION['uid']."','".$State."','".date ("d/m/y H:i:s")."')");
@@ -168,6 +182,7 @@ if(mysql_num_rows($result) > 0)
 				}
 				else
 				{
+
 
 					$date = date ("y/m/d");
 					$time = date ("H:i:s");
@@ -198,6 +213,23 @@ if(mysql_num_rows($result) > 0)
 							$row2 = mysql_fetch_array($result2);
 
 							mysql_query("INSERT INTO fr_folder_owner(Fid,uid) VALUES('".$row2['ID']."','".$_SESSION['uid']."')");
+						}
+						else
+						{
+
+							$result = mysql_query("SELECT * FROM  fr_stud_subject   WHERE Folder_Name = '".$folder."'");
+							if(mysql_num_rows($result) > 0 )
+							{
+								$row = mysql_fetch_array($result);
+								
+								mysql_query("INSERT INTO fr_stud_subject(studID,Folder_Name,SubPath,subID,Date_Created,Time_Created) VALUES('".$_SESSION['uid']."','".$file_name."','".$new_path."','".$row['sID']."','".$date ."','".$time."')");
+
+								$result2 = mysql_query("SELECT * FROM fr_stud_subject  WHERE Folder_Name = '".$file_name."'");
+								$row2 = mysql_fetch_array($result2);
+
+								mysql_query("INSERT INTO fr_folder_owner(Fid,uid) VALUES('".$row2['ID']."','".$_SESSION['uid']."')");
+							}
+
 						}
 					}
 
