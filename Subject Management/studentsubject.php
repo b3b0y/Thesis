@@ -2,7 +2,7 @@
 
   if($_SESSION['UserLvl'] == 1)
   {
-    $result = mysql_query("SELECT stud.*,sub.*,studsub.*,fr_subject.* FROM fr_ins_subject as sub,fr_stud as stud,fr_stud_subject as studsub , fr_subject WHERE fr_subject.SubCode = sub.Subject AND  studsub.subID = sub.ID AND studsub.studID = stud.uid AND studsub.studID = '".$_SESSION['uid']."'") or die(mysql_error());
+    $result = mysql_query("SELECT stud.*,sub.*,studsub.*,fr_subject.* FROM fr_ins_subject as sub,fr_stud as stud,fr_stud_subject as studsub , fr_subject WHERE fr_subject.SubCode = sub.Subject AND studsub.subID = sub.ID AND studsub.studID = stud.uid AND studsub.studID = '".$_SESSION['uid']."'") or die(mysql_error());
   }
   else
   {

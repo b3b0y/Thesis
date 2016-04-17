@@ -13,7 +13,7 @@
 
     <div id="fg_form_InnerFaculty">
         <div  class="form" > 
-            <form name="contactform" id="contactform" method="post" action="AccountManagement/chckAcct.php"> 
+            <form name="facultyform" id="facultyform" method="post" action="AccountManagement/chckAcct.php"> 
                 <p class="contact">Legend:<font style="color:red;" size="5px">  * </font> - Required field </p>
                 
                 <p class="contact" style="border: 1px solid gray;Width:400px;"></p> 
@@ -21,12 +21,7 @@
                 <p class="contact"><label for="Ulevel">User Level  <font style="color:red;"> *</font></label></p>
                 <select class="select-style" name="Ulevel" id="Ulevel" required>
                     <option Selected value="">PLEASE SELECT
-                    <?php
-                    if($_SESSION['Ulvl'] == 5)
-                    {
-                        echo "<option value='4'>Dean";
-                    }
-                    ?>
+                    <option value='4'>Dean
                     <option value="3">Instructor
                 </select>
                 <!--<div id="All"> -->
@@ -54,8 +49,8 @@
                     
                     <p class="contact" style="border: 1px solid gray;Width:400px;"></p> 
                     <center>
-                        <input class="buttom" name="submit" id="submit" tabindex="7" value="SUBMIT" type="submit"> 
-                        <a href="javascript:fg_hideform('fg_formFaculty','fg_backgroundFaculty');"> <input type='button' name='Submit' value='Close' class="buttom" /> </a>
+                        <input class="buttom" name="Faculty" id="submit" tabindex="7" value="SUBMIT" type="submit"> 
+                        <a href="javascript:fg_hideform('fg_formFaculty','fg_backgroundFaculty');"> <input type='button' name='button' value='Close' class="buttom" /> </a>
                     </center>
                 </div>
             </form>
@@ -64,55 +59,6 @@
     
     </div>
 </div>
-<!-- client-side Form Validations:
-Uses the excellent form validation script from JavaScript-coder.com-->
-<!--
-<script type='text/javascript'>
-// <![CDATA[
-
-    var frmvalidator  = new Validator("contactform");
-    frmvalidator.EnableOnPageErrorDisplay();
-    frmvalidator.EnableMsgsTogether();
-    frmvalidator.addValidation("name","req","Please provide folder name");
-
-    document.forms['contactform'].refresh_container=function()
-    {
-        var formpopup = document.getElementById('fg_formFaculty');
-        var innerdiv = document.getElementById('fg_form_InnerFaculty');
-        var b = innerdiv.offsetHeight+30+30;
-
-        formpopup.style.height = b+"px";
-    }
-
-    document.forms['contactform'].form_val_onsubmit = document.forms['contactform'].onsubmit;
-
-
-    document.forms['contactform'].onsubmit=function()
-    {
-        if(!this.form_val_onsubmit())
-        {
-            this.refresh_container();
-            return false;
-        }
-
-        return true;
-    }
-    function fg_submit_form()
-    {
-        //alert('submiting form');
-        var containerobj = document.getElementById('fg_form_InnerFaculty');
-        var sourceobj = document.getElementById('fg_submit_success_message');
-        var error_div = document.getElementById('fg_server_errors');
-        var formobj = document.forms['contactform']
-
-        var submitter = new FG_FormSubmitter("AccountManagement/chckAcct.php",containerobj,sourceobj,error_div,formobj);
-        var frm = document.forms['contactform'];
-
-        submitter.submit_form(frm);
-    }
-
-// ]]>
-</script> -->
 
 <div id='fg_backgroundFaculty'></div>
 

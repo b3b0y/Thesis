@@ -21,62 +21,61 @@
 			<table class="bordered sortable search-table table table-striped" >
 				<thead>
 					<tr>
-						<th><input type="checkbox" id="SelectAll"/></th>       
-						<th>Name</th>
+						<th class="group-false"><input type="checkbox" id="SelectAll"/></th>       
+						<th class="group-false">Name</th>
 						<th>Username</th>
-					
+						<th>Course/Year</th>
 						<th>Last Login</th>
 						<th>Last Log-Out</th>
-						<th>User Level</th>
 						<th>Status</th>
 					</tr>
 				</thead>
-	<?php
-		if($_SESSION['Ulvl'] == "5")
-		{
+				<?php
+					if($_SESSION['Ulvl'] == "5")
+					{
 
-			$result = mysql_query("SELECT fr_user.*,position.*,fr_staff.* FROM fr_user,position,fr_staff WHERE fr_user.UserLvl > 1 AND fr_user.UserLvl = position.UserLvl AND fr_user.UserID = fr_staff.uid ") or die ("Admin :". mysql_error());
-		}
-		else if($_SESSION['Ulvl'] == "4")
-		{
-			$result = mysql_query("SELECT fr_user.*,position.*,fr_staff.* FROM fr_user,position,fr_staff WHERE fr_user.UserLvl < 4 AND fr_user.UserLvl = position.UserLvl AND fr_user.UserID = fr_staff.uid ") or die ("DEAN :". mysql_error());
+						$result = mysql_query("SELECT fr_user.*,position.*,fr_staff.* FROM fr_user,position,fr_staff WHERE fr_user.UserLvl > 1 AND fr_user.UserLvl = position.UserLvl AND fr_user.UserID = fr_staff.uid ") or die ("Admin :". mysql_error());
+					}
+					else if($_SESSION['Ulvl'] == "4")
+					{
+						$result = mysql_query("SELECT fr_user.*,position.*,fr_staff.* FROM fr_user,position,fr_staff WHERE fr_user.UserLvl < 4 AND fr_user.UserLvl = position.UserLvl AND fr_user.UserID = fr_staff.uid ") or die ("DEAN :". mysql_error());
 
-		}
-		else if($_SESSION['Ulvl'] == "3")
-		{
-			$result = mysql_query("SELECT fr_user.*,position.*,fr_staff.* FROM fr_user,position,fr_staff WHERE fr_user.UserLvl < 3 AND fr_user.UserLvl = position.UserLvl AND fr_user.UserID = fr_staff.uid ") or die ("Instructor :". mysql_error());
-		}
+					}
+					else if($_SESSION['Ulvl'] == "3")
+					{
+						$result = mysql_query("SELECT fr_user.*,position.*,fr_staff.* FROM fr_user,position,fr_staff WHERE fr_user.UserLvl < 3 AND fr_user.UserLvl = position.UserLvl AND fr_user.UserID = fr_staff.uid ") or die ("Instructor :". mysql_error());
+					}
 
-		
-		if(mysql_num_rows($result)> 0)
-		{
-			while($row = mysql_fetch_array($result))
-			{
-	?>
-			<tr>
-				<td><input class="check" type="checkbox" name="users[]" value="<?php echo $row['UserName']; ?>"></td>      
-				<td><?php echo $row['FirstN'].' &nbsp'.$row['LastN'] ; ?></td>
-				<td><?php echo $row['UserName']; ?></td>
-			
-				<td><?php echo $row['last_login_date']; ?></td>
-				<td><?php echo $row['last_logout_date']; ?></td>
-				<td><?php echo $row['Position']; ?></td>
-				<td><?php echo $row['UserStat']; ?></td>
-			</tr>        
-		</form>
-	<?php
-			}
-	?>
-		
-	<?php	
-		}	
-		else
-		{
+					
+					if(mysql_num_rows($result)> 0)
+					{
+						while($row = mysql_fetch_array($result))
+						{
+				?>
+						<tr>
+							<td><input class="check" type="checkbox" name="users[]" value="<?php echo $row['UserName']; ?>"></td>      
+							<td><?php echo $row['FirstN'].' &nbsp'.$row['LastN'] ; ?></td>
+							<td><?php echo $row['UserName']; ?></td>
+						
+							<td><?php echo $row['last_login_date']; ?></td>
+							<td><?php echo $row['last_logout_date']; ?></td>
+							<td><?php echo $row['Position']; ?></td>
+							<td><?php echo $row['UserStat']; ?></td>
+						</tr>        
+					</form>
+				<?php
+						}
+				?>
+					
+				<?php	
+					}	
+					else
+					{
 
-			echo "<tr > <td colspan='9'> File Records  Empty! </td></tr>";
-		}
-	?>
-		</table>
+						echo "<tr > <td colspan='9'> File Records  Empty! </td></tr>";
+					}
+				?>
+			</table>
 			<div class="my-navigation">
 				<!--<div>
 					Go to page <select class="simple-pagination-select-specific-page"></select>.

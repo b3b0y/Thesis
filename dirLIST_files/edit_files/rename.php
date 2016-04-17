@@ -66,7 +66,7 @@ if($_POST['Submit'] == 'Rename')
 							
 							$dir_to_browse2 = $row2['SubPath']."/";
 
-							echo $old_name = $dir_to_browse2.$file_name;
+							$old_name = $dir_to_browse2.$file_name;
 
 							$new_name = $dir_to_browse2.$_POST['new_name'];
 

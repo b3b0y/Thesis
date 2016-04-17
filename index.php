@@ -348,7 +348,7 @@ set_time_limit(0);
 																<span id="button-1033-btnWrap" class="x-btn-wrap x-btn-wrap-default-toolbar-large">
 																	<span id="button-1033-btnEl" class="x-btn-button x-btn-button-default-toolbar-large x-btn-text  x-btn-icon x-btn-icon-top x-btn-button-center">
 																		<span id="button-1033-btnIconEl" class="x-btn-icon-el x-btn-icon-el-default-toolbar-large filemanagericons icon-copy32 center-large-icon ">
-																			<input  type="image" onclick="download();" src="Images/Down.png" width="40px" height="40px" alt="download" name="download" id="download" style="cursor:pointer" > 
+																			<input  type="image" onclick="download2();" src="Images/Down.png" width="40px" height="40px" alt="download" name="download" id="download" style="cursor:pointer" > 
 																		</span>
 																		<br>
 																		<span id="button-1033-btnInnerEl" class="x-btn-inner x-btn-inner-default-toolbar-large">
@@ -527,30 +527,59 @@ set_time_limit(0);
     	</td>
     </tr>
     <tr>
-    	 <td align="" class="file_bg2" onclick="delete_item();" style="cursor:pointer">
-    	 <ul>
-    		<li>
-    			<img src="dirLIST_files/edit_files/delete.png" alt="delete" name="detele" width="20px" height="20px" border="0" id="detele"/>
-    		</li>
-	    	<li>
-	    		Delete
-	    	</li>
-    	</ul>
+    	<td align="" class="file_bg2" onclick="delete_item();" style="cursor:pointer">
+	    	<ul>
+	    		<li>
+	    			<img src="dirLIST_files/edit_files/delete.png" alt="delete" name="detele" width="20px" height="20px" border="0" id="detele"/>
+	    		</li>
+		    	<li>
+		    		Delete
+		    	</li>
+	    	</ul>
       	</td>
     </tr>
-     <tr>
-    	 <td align="" class="file_bg2" onclick="download();" style="cursor:pointer">
-    	 <ul>
-    		<li>
-    			<img src="Images/Down.png" width="20px" height="20px">
-    		</li>
-	    	<li>
-	    		Download
-	    	</li>
-    	</ul>
+    <tr>
+    	<td align="" class="file_bg2" onclick="download();" style="cursor:pointer">
+	    	<ul>
+	    		<li>
+	    			<img src="Images/Down.png" width="20px" height="20px">
+	    		</li>
+		    	<li>
+		    		Download
+		    	</li>
+	    	</ul>
       	</td>
     </tr>
+    <?php 
+    if($_SESSION['UserLvl'] >= 3)
+    {
+    ?>
+	    <tr>
+	    	<td align="" class="file_bg2" onclick="archive();" style="cursor:pointer">
+		    	<ul>
+		    		<li>
+		    			<img src="Images/rar.png" width="20px" height="20px">
+		    		</li>
+			    	<li>
+			    		Archive folder
+			    	</li>
+		    	</ul>
+	      	</td>
+	    </tr>
+	    <tr>
+	    	<td align="" class="file_bg2" onclick="backup();" style="cursor:pointer">
+		    	<ul>
+		    		<li>
+		    			<img src="Images/backup.jpg" width="20px" height="20px">
+		    		</li>
+			    	<li>
+			    		Backup folder
+			    	</li>
+		    	</ul>
+	      	</td>
+	    </tr>
     <?php
+	}
     	$result = mysql_query("SELECT * FROM fr_ins_subject WHERE Subject = '".$url_folder."'");
     	if(mysql_num_rows($result) > 0)
     	{
@@ -619,11 +648,9 @@ var js_files_and_folders = [
 function delete_item()
 {
 	
-	item_name = js_files_and_folders[selected_item_type][selected_item_id];
+item_name = js_files_and_folders[selected_item_type][selected_item_id];
 	item_name_base64 = js_files_and_folders_base64[selected_item_type][selected_item_id];
-
-	if(confirm("********<?PHP echo $local_text['warning']; ?>!********\n\n<?PHP echo $local_text['no_go_back']; ?>\n\n"+'<?PHP echo $local_text['sure_to_del']; ?> ` '+item_name+' ` ?')) window.location = 'dirLIST_files/edit_files/delete.php?folder=<?PHP echo base64_decode($_GET['folder']); ?>&item_name='+item_name_base64;
-
+	if(confirm("********<?PHP echo $local_text['warning']; ?>!********\n\n<?PHP echo $local_text['no_go_back']; ?>\n\n"+'<?PHP echo $local_text['sure_to_del']; ?> ` '+item_name+' ` ?')) window.location = 'dirLIST_files/edit_files/delete.php?folder=<?PHP echo $_GET['folder']; ?>&item_name='+item_name_base64;;
 }
 
 function share_folder()
@@ -659,6 +686,12 @@ function ren()
 }
 
 function download()
+{
+	item_name_base64 = js_files_and_folders_base64[selected_item_type][selected_item_id];
+	location.href='dirLIST_files/download.php?folder=<?PHP echo $_GET['folder']; ?>&item_name='+item_name_base64;
+}	
+
+function download2()
 {
 	item_name_base64 = js_files_and_folders_base64[selected_item_type][selected_item_id];
 	location.href='dirLIST_files/download.php?folder=<?PHP echo $_GET['folder']; ?>&item_name='+item_name_base64;

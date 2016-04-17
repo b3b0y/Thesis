@@ -33,7 +33,7 @@ $rename_action = FALSE;
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Folder Name: <?PHP echo basename(base64_decode($_GET['item_name'])); ?></title>
 
-    <link href="../css/style.css" type="text/css" rel="stylesheet" />
+    
     <link href="../css/jquery.simple-dtpicker.css" rel="stylesheet" type="text/css"  />
 
     <script type="text/javascript" src="../Javascript/jQuery v1.7.js"></script>

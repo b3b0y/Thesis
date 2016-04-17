@@ -38,39 +38,16 @@
         }
 
         ?>
-        <script>
-            /*var chars = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
-            var string_length = 8;
-            var randomstring = '';
-            var charCount = 0;
-            var numCount = 0;
-            for (var i=0; i<string_length; i++) 
-            {
-                // If random bit is 0, there are less than 3 digits already saved, and there are not already 5 characters saved, generate a numeric value. 
-                if((Math.floor(Math.random() * 2) == 0) && numCount < 3 || charCount >= 5) 
-                {
-                    var rnum = Math.floor(Math.random() * 10);
-                    randomstring += rnum;
-                    numCount += 1;
-                } 
-                else 
-                {
-                    // If any of the above criteria fail, go ahead and generate an alpha character from the chars string
-                    var rnum = Math.floor(Math.random() * chars.length);
-                    randomstring += chars.substring(rnum,rnum+1);
-                    charCount += 1;
-                }
-            }*/
-        </script>
-                <p class="contact">Legend:<font style="color:red;" size="5px">  * </font> - Required field </p>
 
-                <h1>Add Student Account</h1>
-                <p class="contact" style="border: 1px solid gray;Width:400px;"></p> 
-                <br>
+        <p class="contact">Legend:<font style="color:red;" size="5px">  * </font> - Required field </p>
+
+        <h1>Add Student Account</h1>
+        <p class="contact" style="border: 1px solid gray;Width:400px;"></p> 
+        <br>
                 
                 <!--<input class="buttom" name="gen" id="submit" tabindex="2" value="ADD FORM" type="button" onclick="addRow(this.form);">-->
           
-        <form id="Studentform" name="Studentform" method="post" action="AccountManagement/chckAcct.php?Student=Student">
+        <form id="Studentform" name="Studentform" method="post" action="AccountManagement/chckAcct.php">
 
             <p class="contact"><label for="ControlNo">Enter Control Number <font style="color:red"> * </font> </label> <span style="color:red" class="" id="errmsg"></span></p> 
             <input id="ControlNo" name="Idnum" placeholder="Enter Control Number" required="" tabindex="1" type="text" value="" autofocus>
@@ -79,9 +56,9 @@
             <p class="contact"><label for="Fname1">First Name <font style="color:red"> *</font></label> </label> <span style="color:red" class="" id="errmsgF"></span></p> 
             <input id="Fname1" name="Fname" placeholder="First Name" required="" tabindex="2" type="text" value="<?php if(isset($_SESSION['lname'])) {echo$_SESSION['lname']; } ?>" autofocus> 
             <p class="contact"><label for="Mname1">Middle Name </label><span style="color:red" class="" id="errmsgM"></span></p>
-            <input id="Mname1" name="Mname" placeholder="Middle Name" tabindex="3" type="text" value="<?php if(isset($_SESSION['fname'])) {echo $_SESSION['fname']; } ?>"> 
+            <input id="Mname1" name="Mname" placeholder="Middle Name" tabindex="3" type="text" value="<?php if(isset($_SESSION['mname'])) {echo $_SESSION['mname']; } ?>"> 
             <p class="contact"><label for="Lname1">Last Name <font style="color:red"> *</font></label> <span style="color:red" class="" id="errmsgL"></span></p>
-            <input id="Lname1" name="Lname" placeholder="Last Name"  required="" tabindex="4" type="text" value="<?php if(isset($_SESSION['mname'])) {echo $_SESSION['mname']; } ?>"> 
+            <input id="Lname1" name="Lname" placeholder="Last Name"  required="" tabindex="4" type="text" value="<?php if(isset($_SESSION['lname'])) {echo $_SESSION['lname']; } ?>"> 
                                                              
             <p class="contact"><label for="course">Course / Year Level   <font style="color:red"> *</font></label></p> 
             <select class="select-style" name="course" name="course" tabindex="5"  required>
@@ -106,9 +83,9 @@
 
             <p class="contact"></p> 
             <p class="contact"><label for="password">Password</label></p> 
-            <input type="input" id="pass" name="pass" placeholder="Password" tabindex="" required="" value="<?php echo $pass; ?>" readonly>
+            <input type="text" id="pass" name="pass" placeholder="Password" tabindex="" required="" value="<?php echo $pass; ?>" readonly>
             <p class="contact" style="border: 1px solid gray;Width:400px;"></p> 
-            <input class="buttom" name="submit" id="submit" tabindex="7" value="SUBMIT" type="submit"> 
+            <input class="buttom" name="student" id="submit" tabindex="7" value="SUBMIT" type="submit"> 
             <a href="javascript:fg_hideform('fg_formStudent','fg_backgroundStudent');"> <input type='button' name='Submit' value='Close' class="buttom" /> </a>
         </form>
     </div>  

@@ -183,7 +183,7 @@
 			
 			foreach($folders_sorted as $key => $val)//This part is for the folders
 			{
-				$cells_thumbs[] = ' <div class="variant-wraper"> <div class="variant-image"> <a id="click'.$folders_counter.'" href="'.$this_file_name.'?folder='.base64_encode($folders['link'][$key]).'"><img border="0" style="cursor:pointer"   src="dirLIST_files/icons_large/folder.png"></a> </div>'."\n";
+				$cells_thumbs[] = ' <div class="variant-wraper"> <div class="variant-image"> <a id="clickf'.$folders_counter.'" href="'.$this_file_name.'?folder='.base64_encode($folders['link'][$key]).'"><img border="0" style="cursor:pointer"   src="dirLIST_files/icons_large/folder.png"></a> </div>'."\n";
 				
 				$cell_name = '';
 				
@@ -223,7 +223,8 @@
 				$cell_name .= '<div class="variant-desc"> <span class="variant-title"> ';
 				
 				$cell_name .= '<a id="clickf'.$files_counter.'" >'.chunk_split($files['name'][$key], 15, "<br />").'</a>';
-																
+				$cell_name .= '</div><div style="float:right"><img border="0" src="dirLIST_files/edit_files/edit.png" onclick="show_div(0, \''.$files_counter.'\');" style="cursor:pointer"></div>';	
+
 				$cells_names[] = $cell_name.'</span> </div> </div>'."\n";
 				
 				$files_counter++;

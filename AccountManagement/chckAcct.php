@@ -6,7 +6,7 @@ $stop = "";
 $bol = false;
 
 
-if(isset($_GET['Student']) && $_GET['Student'] == 'Student')
+if(isset($_POST['Student']) && $_POST['Student'] == 'SUBMIT')
 {
 	if(isset($_POST['Fname']))
 	{

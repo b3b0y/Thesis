@@ -30,14 +30,13 @@
 
 	$row = mysql_fetch_array($qry);
 	$_SESSION['Ulvl'] = $row['UserLvl'];
-	if($row['UserStat'] != 'live')
-	{
+	/*if($row['UserStat'] != 'live')
+	{*/
 		if ($num==0 || $pass!=$row['UserPass']) //check if the pass is in the database
 		{
 			//failed to login
 			echo "<script> alert('Username or Password Incorrect'); 
 					window.location.assign('../index.php') </script>";
-
 			
 		} 
 		else
@@ -50,7 +49,7 @@
 			}
 			else
 			{
-				if($row['UserStat'] == 'offline')
+				if($row['UserStat'] == 'offline' || $row['UserStat'] == 'live' )
 				{
 					mysql_query("UPDATE fr_user SET UserStat = 'live' , last_login_date  = '".date ("y/m/d g:i:s")."' WHERE UserName = '".$uname."'");
 					
@@ -92,11 +91,11 @@
 			}
 
 		}
-	}
+	/*}
 	else
 	{
 		echo "<script> alert('Account is used by someone else please choose other Account'); 
 					window.location.assign('../index.php') </script>";
-	}
+	}*/
 
 ?>
